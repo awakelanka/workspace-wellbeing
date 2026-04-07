@@ -1,0 +1,19 @@
+{
+  "name": "@workspace-wellbeing/modules",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@workspace-wellbeing/api-client": "file:../api-client",
+    "@workspace-wellbeing/auth": "file:../auth",
+    "@workspace-wellbeing/ui": "file:../ui"
+  },
+  "peerDependencies": {
+    "react": "19.2.4"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

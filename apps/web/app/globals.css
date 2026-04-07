@@ -1,0 +1,11 @@
+@import "@workspace-wellbeing/tailwind-config/theme.css";
+@import "@workspace-wellbeing/tailwind-config/utilities.css";
+
+:root {
+  --font-heading: var(--font-geist-sans);
+  --font-copy: var(--font-geist-mono);
+}
+
+body {
+  font-family: var(--font-heading), sans-serif;
+}

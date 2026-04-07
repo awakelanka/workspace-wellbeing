@@ -1,0 +1,121 @@
+@layer base {
+  * {
+    border-color: var(--theme-border);
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    background:
+      radial-gradient(
+        circle at top left,
+        color-mix(in srgb, var(--theme-primary) 16%, transparent) 0%,
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--theme-surface-strong) 48%, transparent) 0%,
+        transparent 22%
+      ),
+      linear-gradient(
+        180deg,
+        var(--theme-background) 0%,
+        color-mix(in srgb, var(--theme-background) 82%, white 18%) 100%
+      );
+    color: var(--theme-foreground);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--theme-primary) 24%, white 76%);
+  }
+}
+
+@layer utilities {
+  .panel-surface {
+    background: color-mix(in srgb, var(--theme-surface) 88%, white 12%);
+    border: 1px solid color-mix(in srgb, var(--theme-border) 78%, white 22%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .panel-subtle {
+    background: color-mix(in srgb, var(--theme-surface-muted) 68%, white 32%);
+    border: 1px solid color-mix(in srgb, var(--theme-border) 60%, white 40%);
+    border-radius: var(--radius-md);
+  }
+
+  .text-gradient-brand {
+    background: linear-gradient(
+      135deg,
+      var(--theme-primary) 0%,
+      color-mix(in srgb, var(--theme-primary) 62%, black 38%) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-glow::before {
+    content: "";
+    position: absolute;
+    inset: auto -10% -18% auto;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--theme-primary) 20%, transparent);
+    filter: blur(42px);
+    pointer-events: none;
+  }
+
+  .hero-glow::after {
+    content: "";
+    position: absolute;
+    inset: -12% auto auto -8%;
+    width: 14rem;
+    height: 14rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--theme-surface-strong) 78%, transparent);
+    filter: blur(28px);
+    pointer-events: none;
+  }
+
+  .noise-border {
+    border: 1px solid color-mix(in srgb, var(--theme-border) 65%, white 35%);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--theme-surface) 92%, white 8%),
+        color-mix(in srgb, var(--theme-surface) 84%, transparent)
+      ),
+      radial-gradient(
+        circle at top left,
+        color-mix(in srgb, var(--theme-primary) 10%, transparent),
+        transparent 46%
+      );
+  }
+
+  .app-shell-grid {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: minmax(18rem, 19.5rem) minmax(0, 1fr);
+  }
+
+  @media (max-width: 1023px) {
+    .app-shell-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
